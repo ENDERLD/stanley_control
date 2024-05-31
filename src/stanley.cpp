@@ -23,8 +23,8 @@ int Stanley::FindTargetIndex(const std::vector<std::vector<double>> &road_point)
         auto OA_NORM = Distance(road_point[i][0], road_point[i][1]);
         auto AB_NORM = Distance(road_point[i + 1][0] - road_point[i][0], road_point[i + 1][1] - road_point[i][1]);
 
-        auto Inner_product = (((road_point[i + 1][0] - road_point[i][0]) * road_point[i][0]) +
-                              ((road_point[i + 1][1] - road_point[i][1]) * road_point[i][1]));
+        auto Inner_product = (((road_point[i + 1][1] - road_point[i][1]) * road_point[i][0]) -
+                              ((road_point[i + 1][0] - road_point[i][0]) * road_point[i][1]));
 
         auto Projector_distance = abs(Inner_product / AB_NORM);
         dist.emplace_back(OA_NORM);
@@ -104,9 +104,9 @@ double Stanley::stanleyControl(const std::vector<double> &vehicle_coordinates,
     } else {
         e_y = abs(current_ref_point[1]);
     }
-    std::cout << "lateral error : " << dist_Projector_distance[current_target_index] << std::endl;
+    std::cout << "lateral error : " << dist_Projector_distance[0] << std::endl;
     //# 通过公式(5)计算转角,符号保持一致
-    lateral_error = dist_Projector_distance[current_target_index];
+    lateral_error = dist_Projector_distance[0];
 
     double v = vehicle_coordinates[1];
     std::cout << "vehicle speed : " << vehicle_coordinates[1] << std::endl;

@@ -100,14 +100,14 @@ void Control::Solve() {
     point_lon.clear();
     data.emplace_back(FrontWheelSteeringAngle);
     data.emplace_back(vs.angle().Get(vs.angle().size()-1));
-    data.emplace_back(FrontWheelSteeringAngle-vs.steer().Get(vs.steer().size()-1));
+    data.emplace_back(FrontWheelSteeringAngle-vs.angle().Get(vs.angle().size()-1));
     data.emplace_back(control_v);
     data.emplace_back(v);
     data.emplace_back(control_v-v);
     data.emplace_back(nav.position().lat().value());
     data.emplace_back(nav.position().lon().value());
     for (const auto &point: lp.points()) {
-        point_lat.emplace_back(point.alt().value());
+        point_lat.emplace_back(point.lat().value());
         point_lon.emplace_back(point.lon().value());
     }
     data.emplace_back(point_lat[0]);

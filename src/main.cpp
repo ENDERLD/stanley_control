@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
         std::copy(data.begin(), data.end(), msg.data.begin());
         data_pub ->publish(msg);
     };
-
+    control.publish_3 = data_publish;
 
 
     auto lp = mw_subscribe(UInt8MultiArrayT, "local_path", [&](const UInt8MultiArrayConstPtrT &msg){
