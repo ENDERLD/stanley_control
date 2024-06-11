@@ -6,7 +6,9 @@
 class Config {
 public:
     static double lateral_acc;
-    static double lateral_error_coe;
+    static double lateral_error_gain_U;
+    static double lateral_error_gain_D;
+
     static double upper_speed_limit;
     static double lower_speed_limit;
 
@@ -25,7 +27,8 @@ public:
             stanley_control = YAML::LoadFile(stanly);
             //stanley_control = YAML::LoadFile((ac_folder / "stanley.yaml").string());
             Config::lateral_acc = stanley_control["lateral_acc"].as<double>();
-            Config::lateral_error_coe = stanley_control["lateral_error_coe"].as<double>();
+            Config::lateral_error_gain_U = stanley_control["lateral_error_gain_U"].as<double>();
+            Config::lateral_error_gain_D = stanley_control["lateral_error_gain_D"].as<double>();
             Config::upper_speed_limit = stanley_control["upper_speed_limit"].as<double>();
             Config::lower_speed_limit = stanley_control["lower_speed_limit"].as<double>();
             Config::control_acc = stanley_control["control_acc"].as<double>();
@@ -44,7 +47,9 @@ public:
 inline YAML::Node Config::stanley_control{};
 inline std::string Config::error_message{};
 inline double Config::lateral_acc{};
-inline double Config::lateral_error_coe{};
+inline double Config::lateral_error_gain_U{};
+inline double Config::lateral_error_gain_D{};
+
 inline double Config::upper_speed_limit{};
 inline double Config::lower_speed_limit{};
 

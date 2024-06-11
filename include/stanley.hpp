@@ -26,7 +26,8 @@ public:
     std::vector<double> current_ref_point{};
     std::vector<double> next_point{};
     std::vector<double> dist_Projector_distance{};
-    double k = Config::lateral_error_coe;
+    double k_U = Config::lateral_error_gain_U;
+    double k_D = Config::lateral_error_gain_D;
     double l_e_r = Config::lateral_error_range;
     double a_d_r = Config::angle_difference_range;
     int idx;

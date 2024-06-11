@@ -117,6 +117,8 @@ double Stanley::stanleyControl(const std::vector<double> &vehicle_coordinates,
         V = v;
     }
     //std::cout << "V : " << V << std::endl;
+    double k = std::max( k_D , std::min( k_U , 4. / (5. * v) ));
+
     double delta_e = atan2(k * e_y, V);
     std::cout << "lateral error correction Angle : " << delta_e << std::endl;
 
