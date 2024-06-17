@@ -1,5 +1,6 @@
 # Lateral error debugging records
 ## 1.Find the problem:
+![demo](pictures/截图1.png)
 ![Abnormal error log chart](..%2F..%2FPictures%2F%E6%88%AA%E5%9B%BE%2F%E6%88%AA%E5%9B%BE%202024-06-03%2011-40-03.png)
 ![截图 2024-06-03 11-47-15.png](..%2F..%2FPictures%2F%E6%88%AA%E5%9B%BE%2F%E6%88%AA%E5%9B%BE%202024-06-03%2011-47-15.png)
 
